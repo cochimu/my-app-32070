@@ -9,7 +9,7 @@
 
         <div class="form-group">
           <label for="subject">
-            ボードゲーム名
+            名前
           </label>
           <input
             id="name"
@@ -22,7 +22,7 @@
 
         <div class="form-group">
           <label for="describe">
-            商品説明
+            ルール
           </label>
           <textarea
             id="describe"
