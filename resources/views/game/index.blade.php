@@ -1,5 +1,3 @@
-@extends('common.common')
-
 <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
