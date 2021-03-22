@@ -1,3 +1,4 @@
+
 <div class="form-style-5">
     <form action="{{ route('games.store') }}" enctype="multipart/form-data" method="POST">
       @csrf
