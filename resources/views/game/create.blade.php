@@ -68,19 +68,6 @@
           >
         </div>
 
-        <div class="form-group" style="margin-bottom: 15px">
-          <label for="image">
-            画像
-          </label>
-          <input
-            id="image"
-            type='file'
-            name="image"
-            accept="image/png, image/jpeg"
-            class="form-control-file"
-          >
-        </div>
-
         <input type="submit" value="登録" />
   
       </fieldset>

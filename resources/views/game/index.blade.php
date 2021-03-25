@@ -40,6 +40,7 @@
                 </div>
                 
                 <div class="row">
+                    <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ route('games.create') }}">投稿する</a>
                     {{-- @foreach($games as $game) --}}
                     {{-- @if($game->image_path) --}}
                     <div class="col-lg-4 col-sm-6 mb-4">
