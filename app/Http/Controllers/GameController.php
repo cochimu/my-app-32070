@@ -36,7 +36,10 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->only('user_id', 'name', 'describe', 'play_time', 'players_minimum', 'players_max');
+
+        Game::create($request->all());
+
+        /**$input = $request->only('user_id', 'name', 'describe', 'play_time', 'players_minimum', 'players_max');
         
         $game = new Game();
         $game->user_id = Auth::id();
@@ -47,6 +50,7 @@ class GameController extends Controller
         $game->players_max = $input["players_max"];
 
         $game->save();
+        */
 
         return redirect('/')->with('success', '投稿しました');
     }
