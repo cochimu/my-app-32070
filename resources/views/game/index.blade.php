@@ -22,13 +22,6 @@
                         <a class="header-button header-login" href="{{ route('login') }}">{{ Auth::user()->name }}</a>
                     </li>
                     <li>
-                        {{-- <a class="header-button header-login" href="{{ route('logout') }}">{{ __('ログアウト') }}</a> --}}
-                        {{-- <form method="POST" action="{{ route('logout') }}"> --}}
-                            {{-- @csrf --}}
-                        {{-- </form> --}}
-
-                    <div>
-                        <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -38,7 +31,6 @@
                                 {{ __('Log out') }}
                             </x-dropdown-link>
                         </form>
-                    </div>
                     </li>
                 @endguest
                 </ul>
