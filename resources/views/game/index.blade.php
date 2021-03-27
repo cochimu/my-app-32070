@@ -22,10 +22,23 @@
                         <a class="header-button header-login" href="{{ route('login') }}">{{ Auth::user()->name }}</a>
                     </li>
                     <li>
-                        <a class="header-button header-login" href="{{ route('logout') }}">{{ __('ログアウト') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        {{-- <a class="header-button header-login" href="{{ route('logout') }}">{{ __('ログアウト') }}</a> --}}
+                        {{-- <form method="POST" action="{{ route('logout') }}"> --}}
+                            {{-- @csrf --}}
+                        {{-- </form> --}}
+
+                    <div>
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log out') }}
+                            </x-dropdown-link>
                         </form>
+                    </div>
                     </li>
                 @endguest
                 </ul>

@@ -46,6 +46,8 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect('/')->with('success', '登録しました');
+
+        //return redirect(RouteServiceProvider::HOME);
     }
 }
