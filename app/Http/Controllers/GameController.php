@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Game;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
@@ -31,26 +31,29 @@ class GameController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $attributes = $request->all();
 
-        Game::create($request->all());
+        // ログインしていないときにエラーになるから、ログインしていない時は 0 を入れる
+        $attributes['user_id'] = Auth::id() ?? 0;
+        Game::create($attributes);
 
         /**$input = $request->only('user_id', 'name', 'describe', 'play_time', 'players_minimum', 'players_max');
-        
-        $game = new Game();
-        $game->user_id = Auth::id();
-        $game->name = $input["name"];
-        $game->describe = $input["describe"];
-        $game->play_time = $input["play_time"];
-        $game->players_minimum = $input["players_minimum"];
-        $game->players_max = $input["players_max"];
-
-        $game->save();
-        */
+         *
+         * $game = new Game();
+         * $game->user_id = Auth::id();
+         * $game->name = $input["name"];
+         * $game->describe = $input["describe"];
+         * $game->play_time = $input["play_time"];
+         * $game->players_minimum = $input["players_minimum"];
+         * $game->players_max = $input["players_max"];
+         *
+         * $game->save();
+         */
 
         return redirect('/')->with('success', '投稿しました');
     }
@@ -58,7 +61,7 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +72,7 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,8 +83,8 @@ class GameController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -92,7 +95,7 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
